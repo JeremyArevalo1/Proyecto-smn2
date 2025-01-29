@@ -7,9 +7,10 @@ import morgan from "morgan";
 import { dbConnection } from './mongo.js';
 import limiter from '../src/middlewares/validar-cant-peticiones.js';
 import authRoutes from '../src/auth/auth-router.js'
+import authRoutes from '../src/auth/auth-router.js';
 
 
-const configurarMiddlewares = (app) => {
+const middlewares = (app) => {
     app.use(express.urlencoded({ extended : false }));
     app.use(cors());
     app.use(express.json());
@@ -18,10 +19,8 @@ const configurarMiddlewares = (app) => {
     app.use(limiter);
 }
 
-const configurarRutas = (app) => {
-    const authPath = '/adoptionSystem/v1/auth';
-
-    app.use(authPath, authRoutes);
+const routes = (app) => {
+    app.use('/adoptionSystem/v1/auth', authRoutes);
 }
 
 const conectarDB = async () => {
@@ -33,15 +32,18 @@ const conectarDB = async () => {
     }
 }
 
-export const iniciarServidor = async () => {
+export const initserver = async () => {
     const app = express();
     const port = process.env.PORT || 3000;
 
-    await conectarDB();
-    configurarMiddlewares(app);
-    configurarRutas(app);
+    try {
+        middlewares(app);
+        conectarDB();
+        routes();
+        app.listen(port)
+        console.log(`Server running on port ${port}`)
+    } catch (err) {
+        console.log(`Server init failed: ${err}`);
+    }
 
-    app.listen(port, () =>{
-        console.log(`Server running on port ${port}`);
-    })
 }
