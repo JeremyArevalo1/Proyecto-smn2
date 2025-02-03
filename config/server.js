@@ -6,14 +6,13 @@ import helmet from "helmet";
 import morgan from "morgan";
 import { dbConnection } from './mongo.js';
 import limiter from '../src/middlewares/validar-cant-peticiones.js';
-import authRoutes from '../src/auth/auth-router.js'
 import authRoutes from '../src/auth/auth-router.js';
 
 
 const middlewares = (app) => {
     app.use(express.urlencoded({ extended : false }));
-    app.use(cors());
     app.use(express.json());
+    app.use(cors());
     app.use(helmet());
     app.use(morgan('dev'));
     app.use(limiter);
@@ -39,7 +38,7 @@ export const initserver = async () => {
     try {
         middlewares(app);
         conectarDB();
-        routes();
+        routes(app);
         app.listen(port)
         console.log(`Server running on port ${port}`)
     } catch (err) {

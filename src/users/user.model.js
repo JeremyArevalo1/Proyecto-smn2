@@ -17,14 +17,14 @@ const UserSchema = Schema({
     },
     email: {
         type: String,
-        required: [true, 'El correo es obligatorio'],
+        required: [true, 'Emial is required'],
         unique: true
     },
     password: {
         type: String,
-        required: [true, 'La contraseña es obligatoria']
+        required: [true, 'password is required']
     },
-    img: {
+    profilePicture: {
         type: String,
     },
     phone: {
@@ -57,4 +57,4 @@ UserSchema.methods.toJSON = function() {
     return usuario;
 }
 
-export default mongoose.model('user', UserSchema);
+export default model('user', UserSchema);
