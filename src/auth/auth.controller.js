@@ -8,14 +8,9 @@ export const login = async (req, res) => {
 
 
     try {
-
-        const lowerEmail = email ? email.toLowerCase() : null;
-        const lowerUsername = username ? username.toLowerCase() : null;
-
         const user = await Usuario.findOne({
-            $or: [{ email: lowerEmail }, { username: lowerUsername }]
+            $or: [{ email }, { username }]
         });
-        console.log("asdasdasdasdasda")
 
         if (!user) {
             return res.status(400).json({
@@ -35,7 +30,6 @@ export const login = async (req, res) => {
                 msg: 'La contraseña es incorrecta'
             })
         }
-        console.log("dfgsdfsdfsdf");
         const token = await generarJWT(user.id);
 
         res.status(200).json({
