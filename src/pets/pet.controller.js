@@ -119,3 +119,33 @@ export const deletePet = async (req, res) =>{
         })
     }
 }
+
+export const updatePet = async (req, res) => {
+    const { id } = req.params;
+    const data = req.body;    
+
+    try {
+
+        const pet = await Pet.findById(id);
+
+        if (!pet) {
+            return res.status(404).json({
+                success: false,
+                message: 'Mascota no encontrada',
+            });
+        }
+        const updatedPet = await Pet.findByIdAndUpdate(id, data, { new: true });
+
+        res.status(200).json({
+            success: true,
+            message: 'Mascota actualizada correctamente',
+            pet: updatedPet,
+        });
+    } catch (error) {
+        res.status(500).json({
+            success: false,
+            message: 'Error al actualizar la mascota',
+            error,
+        });
+    }
+};

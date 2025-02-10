@@ -1,6 +1,6 @@
 import { Router } from "express";
 import { check } from "express-validator";
-import { savePet, getPets, searchPet, deletePet } from "./pet.controller.js";
+import { savePet, getPets, searchPet, deletePet, editPet } from "./pet.controller.js";
 import { validarCampos } from "../middlewares/validar-campos.js";
 import { validarJWT } from "../middlewares/validar-jwt.js";
 
@@ -39,5 +39,16 @@ router.delete(
     ],
     deletePet
 )
+
+router.put(
+    "/:id",  // El id de la mascota se pasa como parámetro
+    [
+        validarJWT,  // Valida que el usuario esté autenticado (si es necesario)
+        check("id", "No es un id válido").isMongoId(),  // Verifica que el ID sea un id válido de Mongo
+        validarCampos  // Valida que no haya errores de validación
+    ],
+    editPet  // Llama al controlador editPet que ya has creado
+)
+
 
 export default router;
