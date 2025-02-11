@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "b475d13c-d3ee-4280-9fe3-68a8a15c8245",
+		"_postman_id": "61a3037d-dcab-44d2-a743-aed214bcd51a",
 		"name": "Auth",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "37413957"
@@ -13,7 +13,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n      \"name\": \"juaquin\",\r\n      \"surname\": \"figueroa\",\r\n      \"username\": \"jfigueroa\",\r\n      \"email\": \"herbert@gmail.com\",\r\n      \"profilePicture\": \"\",\r\n      \"password\":\"12345678\",\r\n      \"phone\": \"98765432\",\r\n      \"role\": \"USER_ROLE\"\r\n}",
+					"raw": "{\r\n      \"name\": \"Jorge\",\r\n      \"surname\": \"Peralta\",\r\n      \"username\": \"andresjorge\",\r\n      \"email\": \"peralta@gmail.com\",\r\n      \"profilePicture\": \"\",\r\n      \"password\":\"12345677\",\r\n      \"phone\": \"98765432\",\r\n      \"role\": \"USER_ROLE\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -44,7 +44,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n  \"email\": \"herbert@gmail.com\",\r\n  \"password\": \"12345678\"\r\n}",
+					"raw": "{\r\n  \"email\": \"peralta@gmail.com\",\r\n  \"password\": \"12345678\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"

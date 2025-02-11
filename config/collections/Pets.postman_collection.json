@@ -1,16 +1,28 @@
 {
 	"info": {
-		"_postman_id": "e9df8863-58cb-4823-bf07-d7ef97f9ccd7",
+		"_postman_id": "be88e566-699a-4b05-ab3e-094b8a06d277",
 		"name": "Pets",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "37415271"
+		"_exporter_id": "37413957"
 	},
 	"item": [
 		{
 			"name": "GetPets",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
 			"request": {
 				"method": "GET",
 				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
 				"url": {
 					"raw": "http://localhost:3000/adoptionSystem/v1/pets/",
 					"protocol": "http",
@@ -72,7 +84,7 @@
 				"header": [
 					{
 						"key": "x-token",
-						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2FhN2U0MjUyY2NhNTZiMmM0YTlkYTIiLCJpYXQiOjE3MzkyNTI2NTQsImV4cCI6MTczOTI1NjI1NH0.N-87F4KTuuHyeiJI0Fz0eboKXM3WKWrOSVuIym8k5G8",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2FhN2U0MjUyY2NhNTZiMmM0YTlkYTIiLCJpYXQiOjE3MzkzMTA3MDgsImV4cCI6MTczOTMxNDMwOH0.HrOTImeWyptl-g5_QO3GIepzf714nhxUMr_O9zjKGn0",
 						"type": "text"
 					}
 				],

@@ -37,4 +37,24 @@
   "updatedAt": {
     "$date": "2025-02-10T23:03:58.230Z"
   }
+},
+{
+  "_id": {
+    "$oid": "67abcc8e9feb3fae6e030634"
+  },
+  "name": "Jorge",
+  "surname": "Peralta",
+  "username": "andresjorge",
+  "email": "peralta@gmail.com",
+  "password": "$argon2id$v=19$m=65536,t=3,p=4$iFBiqLFzdJpKbk1fOfQ7PQ$lJ++csoF8IZLps4Gd/pMqJCpqOK1lOSvnrz1ausebuE",
+  "profilePicture": null,
+  "phone": "98765432",
+  "role": "USER_ROLE",
+  "estado": true,
+  "createdAt": {
+    "$date": "2025-02-11T22:17:50.611Z"
+  },
+  "updatedAt": {
+    "$date": "2025-02-11T22:33:12.838Z"
+  }
 }]

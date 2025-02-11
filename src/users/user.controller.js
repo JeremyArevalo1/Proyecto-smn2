@@ -83,6 +83,43 @@ export const updateUser = async (req, res = response) =>{
     }
 }
 
+
+export const updatePassword = async (req, res = response) =>{
+    try {
+
+        const { id } = req.params
+        const { password } = req.body;
+
+        if (!password) {
+            return res.status(400).json({
+                success: false,
+                msg: "La nueva contraseña es requerida"
+            });
+        }
+
+        const newPassword = await hash(password);
+        const user = await User.findByIdAndUpdate(id, { password: newPassword }, { new: true});
+        if (!user) {
+            return res.status(404).json({
+                success: false,
+                msg: "Usuario no encontrado"
+            });
+        }
+        res.status(200).json({
+            success: true,
+            msg: 'Contraseña actualizada correctamente'
+        })
+
+    } catch (error) {
+        res.status(500).json({
+            success: false,
+            msg: 'Error al actualizar contraseña',
+            error
+        })
+    }
+}
+
+
 export const deleteUser = async (req, res) =>{
     try {
        

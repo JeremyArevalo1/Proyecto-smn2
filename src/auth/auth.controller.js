@@ -33,7 +33,7 @@ export const login = async (req, res) => {
         const token = await generarJWT(user.id);
 
         res.status(200).json({
-            msg: 'Iniciio de sesion exitoso',
+            msg: 'Inicio de sesion exitoso',
             userDetails: {
                 username: user.username,
                 token: token,

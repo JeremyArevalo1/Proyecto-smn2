@@ -1,6 +1,6 @@
 import { Router } from "express";
 import { check } from "express-validator";
-import { getUsers, getUserById, updateUser, deleteUser } from "./user.controller.js";
+import { getUsers, getUserById, updateUser, deleteUser, updatePassword } from "./user.controller.js";
 import { existeUsuarioById } from "../helpers/db-validator.js";
 import { validarCampos } from "../middlewares/validar-campos.js";
 import { uploadProfilePicture } from "../middlewares/multer-upload.js";
@@ -30,6 +30,15 @@ router.put(
         validarCampos
     ],
     updateUser
+)
+
+router.put(
+    "/password/:id",  // El id de la mascota se pasa como parámetro
+    [ // Valida que el usuario esté autenticado (si es necesario)
+        check("id", "No es un id válido").isMongoId(),  // Verifica que el ID sea un id válido de Mongo
+        validarCampos  // Valida que no haya errores de validación
+    ],
+    updatePassword  // Llama al controlador editPet que ya has creado
 )
 
 router.delete(

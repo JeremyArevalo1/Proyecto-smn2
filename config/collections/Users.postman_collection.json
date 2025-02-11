@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "bd118646-7ea7-4b65-8a91-14309aba18c8",
+		"_postman_id": "34547d85-a237-4fad-b7f1-09177cb0baa0",
 		"name": "Users",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "37413957"
@@ -138,6 +138,38 @@
 						"users",
 						"findUser",
 						"67aa7e4252cca56b2c4a9da2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "UpdatePassword",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"password\": \"12345678\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/adoptionSystem/v1/users/password/67abcc8e9feb3fae6e030634",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"adoptionSystem",
+						"v1",
+						"users",
+						"password",
+						"67abcc8e9feb3fae6e030634"
 					]
 				}
 			},
