@@ -1,6 +1,6 @@
 import { Router } from "express";
 import { check } from "express-validator";
-import { savePet, getPets, searchPet, deletePet, editPet } from "./pet.controller.js";
+import { savePet, getPets, searchPet, deletePet, updatePet } from "./pet.controller.js";
 import { validarCampos } from "../middlewares/validar-campos.js";
 import { validarJWT } from "../middlewares/validar-jwt.js";
 
@@ -47,7 +47,7 @@ router.put(
         check("id", "No es un id válido").isMongoId(),  // Verifica que el ID sea un id válido de Mongo
         validarCampos  // Valida que no haya errores de validación
     ],
-    editPet  // Llama al controlador editPet que ya has creado
+    updatePet  // Llama al controlador editPet que ya has creado
 )
 
 

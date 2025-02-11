@@ -121,12 +121,14 @@ export const deletePet = async (req, res) =>{
 }
 
 export const updatePet = async (req, res) => {
-    const { id } = req.params;
-    const data = req.body;    
+    
 
     try {
 
-        const pet = await Pet.findById(id);
+        const { id } = req.params;
+        const {_id, ...data} = req.body;    
+        
+        const pet = await Pet.findByIdAndUpdate(id, data, { new: true });
 
         if (!pet) {
             return res.status(404).json({
@@ -134,12 +136,11 @@ export const updatePet = async (req, res) => {
                 message: 'Mascota no encontrada',
             });
         }
-        const updatedPet = await Pet.findByIdAndUpdate(id, data, { new: true });
 
         res.status(200).json({
             success: true,
             message: 'Mascota actualizada correctamente',
-            pet: updatedPet,
+            pet
         });
     } catch (error) {
         res.status(500).json({
