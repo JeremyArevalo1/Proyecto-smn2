@@ -1,5 +1,6 @@
 import Role from '../role/role.model.js';
 import User from '../users/user.model.js';
+import Appoit from '../appointment/appointment.model.js';
 
 export const esRoleValido = async(role = '') =>{
     const existeRol = await Role.findOne({ role });
@@ -23,5 +24,13 @@ export const existeUsuarioById = async (id = "") =>{
     if (!existeUsuario) {
         throw new Error(`El Id ${id} no existe`);
         
+    }
+}
+
+export const existeAppoitById = async (id = '') => {
+    const existeAppoit = await Appoit.findById(id);
+    
+    if(!existeAppoit){
+        throw new Error(`La cita con el id ${id} no existe en la base de datos`)
     }
 }

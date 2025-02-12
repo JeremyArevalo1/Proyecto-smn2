@@ -32,4 +32,4 @@ const AppointmentSchema = Schema({
     versionKey: false
 });
 
-export default model("appoint", AppointmentSchema)
+export default model("Appoint", AppointmentSchema)
