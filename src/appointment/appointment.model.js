@@ -2,12 +2,12 @@ import { Schema, model } from "mongoose";
 
 const AppointmentSchema = Schema({
     date: {
-        type: Date,
+        type: String,
         required: true
     },
     hour: {
         type: String,
-        default: () => new date().toLocaleTimeString("es-ES", { hour12: false})
+        required: true,
     },
     keeper: {
         type: Schema.Types.ObjectId,

@@ -41,13 +41,13 @@ router.delete(
 )
 
 router.put(
-    "/:id",  // El id de la mascota se pasa como parámetro
+    "/:id",
     [
-        validarJWT,  // Valida que el usuario esté autenticado (si es necesario)
-        check("id", "No es un id válido").isMongoId(),  // Verifica que el ID sea un id válido de Mongo
-        validarCampos  // Valida que no haya errores de validación
+        validarJWT,
+        check("id", "No es un id válido").isMongoId(),
+        validarCampos
     ],
-    updatePet  // Llama al controlador editPet que ya has creado
+    updatePet
 )
 
 

@@ -4,7 +4,6 @@ import Appoint from "./appointment.model.js"
 
 export const saveAppoint = async (req, res) => {
     try{
-        console.log("Hola")
         const data = req.body;
         const user = await User.findOne({ email: data.email});
         const pet = await Pet.findOne({ name: data.name});
@@ -18,7 +17,7 @@ export const saveAppoint = async (req, res) => {
 
         const appoint = new Appoint({
             ...data,
-            owner: user._id, 
+            keeper: user._id, 
             pet: pet._id
             
         });
@@ -31,7 +30,6 @@ export const saveAppoint = async (req, res) => {
         })
 
     } catch(error){
-        console.log("hola")
         res.status(500).json({
             success: false,
             msg: "Error to save the appointment",
@@ -64,7 +62,7 @@ export const getAppoint = async(req, res) => {
         res.status(200).json({
             success: true,
             total,
-            appoits: appointWithInfo
+            appoints: appointWithInfo
         })
     }catch(error){
         res.status(500).json({
@@ -133,6 +131,33 @@ export const updateAppoint = async (req, res) => {
     try {
         const { id } = req.params;
         const { _id, ...data} = req.body;
+        let { email, name } = req.body;
+
+        if(email) {
+            const user = await User.findOne({ email });
+ 
+            if (!user) {
+                return res.status(400).json({
+                    success: false,
+                    msg: 'Usuario con ese correo electrónico no encontrado',
+                });
+            }
+           
+            data.keeper = user._id;
+        };
+        
+        if(name) {
+            const pet = await Pet.findOne({ name });
+ 
+            if (!pet) {
+                return res.status(400).json({
+                    success: false,
+                    msg: 'mascota con ese correo electrónico no encontrado',
+                });
+            }
+           
+            data.pet = pet._id;
+        }  
 
         const appoint = await Appoint.findByIdAndUpdate(id, data, {new: true});
 
