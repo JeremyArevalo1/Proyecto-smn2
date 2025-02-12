@@ -1,0 +1,42 @@
+[{
+  "_id": {
+    "$oid": "67acf45058b1fcb385d42815"
+  },
+  "date": "2021/02/25",
+  "hour": "06:00",
+  "keeper": {
+    "$oid": "67aa81e752cca56b2c4a9db4"
+  },
+  "pet": {
+    "$oid": "67aa845852cca56b2c4a9dbc"
+  },
+  "ubicacion": "casa",
+  "status": true,
+  "createdAt": {
+    "$date": "2025-02-12T19:19:44.554Z"
+  },
+  "updatedAt": {
+    "$date": "2025-02-12T19:35:10.649Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "67acf97823d95816af4bfb0c"
+  },
+  "date": "2020/10/15",
+  "hour": "10:00",
+  "keeper": {
+    "$oid": "67aa7e4252cca56b2c4a9da2"
+  },
+  "pet": {
+    "$oid": "67aa852052cca56b2c4a9dc5"
+  },
+  "ubicacion": "parque",
+  "status": false,
+  "createdAt": {
+    "$date": "2025-02-12T19:41:44.251Z"
+  },
+  "updatedAt": {
+    "$date": "2025-02-12T19:42:40.598Z"
+  }
+}]
